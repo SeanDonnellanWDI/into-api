@@ -5,7 +5,7 @@ class AccountsController < ProtectedController
 
   # GET /accounts
   def index
-    @accounts = Accounts.all
+    @accounts = current_user.accounts
 
     render json: @accounts
   end
