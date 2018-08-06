@@ -2,8 +2,8 @@
 
 Rails.application.routes.draw do
   # RESTful routes
-  resources :users, only: %i[index show update]
   resources :examples, except: %i[new edit]
+  resources :users, only: %i[index show update]
   resources :accounts, except: %i[new edit]
 
   # Custom routes

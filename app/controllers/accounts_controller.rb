@@ -5,7 +5,7 @@ class AccountsController < ProtectedController
 
   # GET /accounts
   def index
-    @accounts = current_user.accounts
+    @accounts = Accounts.all
 
     render json: @accounts
   end
@@ -49,6 +49,6 @@ class AccountsController < ProtectedController
 
   # Only allow a trusted parameter "white list" through.
   def account_params
-    params.require(:account).permit(:service, :username)
+    params.require(:account).permit(:service, :username, :user_id)
   end
 end
