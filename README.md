@@ -59,7 +59,7 @@ ERD : https://imgur.com/a/fdh9VhW
 Wireframes https://imgur.com/a/fExUV8s
 
 Screenshot of INTO:
-![screenshot of INTO app - successful update](https://imgur.com/a/dEoSCYX)
+![screenshot of INTO app - successful update](https://i.imgur.com/kYOrGd1.png)
 
 Process:
 Create backend, CURL, test, deploy
