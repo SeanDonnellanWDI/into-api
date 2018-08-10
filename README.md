@@ -59,28 +59,28 @@ ERD : https://imgur.com/a/fdh9VhW
 Wireframes https://imgur.com/a/fExUV8s
 User stories:
 Auth
-As a user, I want to sign up
-As a user, I want to sign in
-As a user, I want to change password
-As a user, I want to sign out
+- As a user, I want to sign up
+- As a user, I want to sign in
+- As a user, I want to change password
+- As a user, I want to sign out
 
 Settings
-As a user, I want to connect accounts by username
-As a user, I want to remove accounts
-As a user, I want to update account names
+- As a user, I want to connect accounts by username
+- As a user, I want to remove accounts
+- As a user, I want to update account names
 
 Generator
-As a user, I want to create a collage
+- As a user, I want to create a collage
 - Parameters include grid size (3x3, 4x4, 5x5), time frame (1 week, 1 month, 3 months, 6 months, 1 year, all time), and content type (all, music, tv, movies, games, podcasts, books, etc). Title option available but not required - default title is "3x3_7days_all"
 
-As a user, I want to read all my saved collages (view history)
-As a user, I want to update my collage (settings, title, and generated output)
-As a user, I want to download collages as images
-As a user, I want to delete my collages
+- As a user, I want to read all my saved collages (view history)
+- As a user, I want to update my collage (settings, title, and generated output)
+- As a user, I want to download collages as images
+- As a user, I want to delete my collages
 
 Stretch user stories
-As a user, I want to share collages with Twitter, Instagram, and Tinder
-As a user, I want to publish my collages to a social media feed.
+- As a user, I want to share collages with Twitter, Instagram, and Tinder
+- As a user, I want to publish my collages to a social media feed.
 
 Screenshot of INTO:
 ![screenshot of INTO app - successful update](https://i.imgur.com/kYOrGd1.png)
