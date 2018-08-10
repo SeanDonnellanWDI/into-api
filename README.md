@@ -21,43 +21,43 @@ INTO is (will be*) connected to 3rd party API's in order to gather the necessary
 1. When finishing changes, push to your fork and submit a pull request.
 
 ## List of technologies used
-Git
-Github
-Grunt
-HTML5
-Bootstrap
-Handlebars
-CSS3
-JavaScript
-Ruby
-Rails
-Heroku
-Ember.js
-jQuery
-AJAX
-Spotify Web API
+- Git
+- Github
+- Grunt
+- HTML5
+- Bootstrap
+- Handlebars
+- CSS3
+- JavaScript
+- Ruby
+- Rails
+- Heroku
+- Ember.js
+- jQuery
+- AJAX
+- Spotify Web API
 
 ## List unsolved problems which would be fixed in future iterations.
 Next Steps include:
-Connecting to the Spotify API (POC)
-Extrat 7 days of user history data
-Filter through all history - establish the top 9 albums that user listened to that week
-Order top 9 by amount of time spent listening per album (album1: 2hrs, album2: 1.5hrs, album3: 1.2hrs, etc)
-Pull the album cover of these top 9 albums
-Arrange the album covers in a 3x3 grid, left to right and top to bottom (most-time to least).
-Convert this 3x3 grid into a jpeg or png
-Provide links to share or download
-Extra stretch steps:
-Store the image into AWS
-Display the images as a hsitory for the user
-Allow user to delete individual items (maybe the user doesn't want to share the fact that they've been listening to Kidz Bop 4 for 12 hours this week - provide them a chance to remove and replace before sharing/saving/downloading)
-Connect Netflix, Google Play, Amazon, Audible, Steam, PSN, Xbox, etc
+- Connecting to the Spotify API (POC)
+- Extrat 7 days of user history data
+- Filter through all history - establish the top 9 albums that user listened to that week
+- Order top 9 by amount of time spent listening per album (album1: 2hrs, album2: 1.5hrs, album3: 1.2hrs, etc)
+- Pull the album cover of these top 9 albums
+- Arrange the album covers in a 3x3 grid, left to right and top to bottom (most-time to least).
+- Convert this 3x3 grid into a jpeg or png
+- Provide links to share or download
+- Extra stretch steps:
+- Store the image into AWS
+- Display the images as a hsitory for the user
+- Allow user to delete individual items (maybe the user doesn't want to share the fact that they've been listening to Kidz Bop 4 for 12 hours this week - provide them a chance to remove and replace before sharing/saving/downloading)
+- Connect Netflix, Google Play, Amazon, Audible, Steam, PSN, Xbox, etc
 
 ## Document your planning, process and problem-solving strategy
-Notes: https://imgur.com/a/ODbyiZx
-ERD : https://imgur.com/a/fdh9VhW
-Wireframes https://imgur.com/a/fExUV8s
-User stories:
+- Notes: https://imgur.com/a/ODbyiZx
+- ERD : https://imgur.com/a/fdh9VhW
+- Wireframes https://imgur.com/a/fExUV8s
+- User stories:
 Auth
 - As a user, I want to sign up
 - As a user, I want to sign in
@@ -86,20 +86,20 @@ Screenshot of INTO:
 ![screenshot of INTO app - successful update](https://i.imgur.com/kYOrGd1.png)
 
 Process:
-Create backend, CURL, test, deploy
-Connect backend tables to Ember
-Finish requirements for class purposes
-Connect to Spotify API (in progress)
-Create collage generation engine (not started)
+- Create backend, CURL, test, deploy
+- Connect backend tables to Ember
+- Finish requirements for class purposes
+- Connect to Spotify API (in progress)
+- Create collage generation engine (not started)
 
 Problem-solving strategies:
-Google, check past issues, review class notes, ask a friend, then create an issue of my own. Issues included:
-https://git.generalassemb.ly/ga-wdi-boston/capstone-project/issues/1223
-https://git.generalassemb.ly/ga-wdi-boston/capstone-project/issues/1225
-https://git.generalassemb.ly/ga-wdi-boston/capstone-project/issues/1238
-https://git.generalassemb.ly/ga-wdi-boston/capstone-project/issues/1275
-https://git.generalassemb.ly/ga-wdi-boston/capstone-project/issues/1279
-https://git.generalassemb.ly/ga-wdi-boston/capstone-project/issues/1252
+- Google, check past issues, review class notes, ask a friend, then create an issue of my own. Issues included:
+- https://git.generalassemb.ly/ga-wdi-boston/capstone-project/issues/1223
+- https://git.generalassemb.ly/ga-wdi-boston/capstone-project/issues/1225
+- https://git.generalassemb.ly/ga-wdi-boston/capstone-project/issues/1238
+- https://git.generalassemb.ly/ga-wdi-boston/capstone-project/issues/1275
+- https://git.generalassemb.ly/ga-wdi-boston/capstone-project/issues/1279
+- https://git.generalassemb.ly/ga-wdi-boston/capstone-project/issues/1252
 
 ## Catalog of Routes (paths and methods) that the API expects
 * ### Index
