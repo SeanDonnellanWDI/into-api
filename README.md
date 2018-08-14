@@ -17,7 +17,7 @@ INTO is (will be*) connected to 3rd party API's in order to gather the necessary
 1. Change into the new directory.
 1. Run `bundle install` to install dependencies
 1. Create and checkout a new branch, named `into-api-fork`.
-1. When finishing changes, push to your fork and submit a pull request.
+1. When finishing changes, push to your fork and submit a pull request
 
 ## List of technologies used
 - Git
