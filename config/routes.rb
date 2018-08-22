@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   delete '/sign-out' => 'users#signout'
   patch '/change-password' => 'users#changepw'
   get '/albums' => 'albums#index'
+  get '/callback' => 'albums#example'
 end
