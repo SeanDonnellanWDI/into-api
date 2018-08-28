@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post '/sign-in' => 'users#signin'
   delete '/sign-out' => 'users#signout'
   patch '/change-password' => 'users#changepw'
-  get '/albums' => 'albums#index'
-  get '/callback' => 'albums#example'
+  # get '/albums' => 'albums#index'
+  # post '/albums' => 'albums#example'
+  get '/callback' => 'albums#callback'
 end
