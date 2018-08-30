@@ -46,9 +46,6 @@ class AccountsController < ProtectedController
   def callback
     @sp_service = 'Spotify'
     @sp_code = params['code']
-    # Note: user is currently set to user_id which is hard coded on the front
-    # end. Instead, state should be set to user_token, and user_token should be
-    # dynamically appended to the initial URL request
     @user = User.find(params['state'])
     @sp_access = HTTParty.post('https://accounts.spotify.com/api/token',
                                headers: { 'Accept' => 'application/json' },
@@ -57,7 +54,7 @@ class AccountsController < ProtectedController
                                  'client_secret' => ENV['SPOTIFY_CLIENT_SECRET'],
                                  'grant_type' => 'authorization_code',
                                  'code' => @sp_code,
-                                 'redirect_uri' => 'http://localhost:4741/callback'
+                                 'redirect_uri' => 'https://into-api.herokuapp.com/callback'
                                })
     @sp_access_token = @sp_access['access_token']
     @sp_data = HTTParty.get('https://api.spotify.com/v1/me',
@@ -69,7 +66,7 @@ class AccountsController < ProtectedController
     Account.create(user_id: @user.id,
                    service: @sp_service,
                    username: @sp_user_email)
-    redirect_to 'http://localhost:7165/account'
+    redirect_to 'https://seandonn.io/into-client/#/account'
   end
 
   private
