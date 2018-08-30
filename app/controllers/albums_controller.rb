@@ -84,7 +84,6 @@ class AlbumsController < ApplicationController
       query: {
         'access_token' => @access_token
       })
-    Album.create(email: @spotify_data_request['email'])
     # Render the json object returned by the data access request
     # render json: @spotify_data_request
     # Or, redirect back to the app

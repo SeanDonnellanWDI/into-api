@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   patch '/change-password' => 'users#changepw'
   # get '/albums' => 'albums#index'
   # post '/albums' => 'albums#example'
-  get '/callback' => 'albums#callback'
+  get '/callback' => 'accounts#callback'
 end
