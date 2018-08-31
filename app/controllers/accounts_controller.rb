@@ -54,7 +54,7 @@ class AccountsController < ProtectedController
                                  'client_secret' => ENV['SPOTIFY_CLIENT_SECRET'],
                                  'grant_type' => 'authorization_code',
                                  'code' => @sp_code,
-                                 'redirect_uri' => 'https://into-api.herokuapp.com/callback'
+                                 'redirect_uri' => 'http://localhost:4741/callback'
                                })
     @sp_access_token = @sp_access['access_token']
     @sp_data = HTTParty.get('https://api.spotify.com/v1/me',
@@ -66,7 +66,7 @@ class AccountsController < ProtectedController
     Account.create(user_id: @user.id,
                    service: @sp_service,
                    username: @sp_user_email)
-    redirect_to 'https://seandonn.io/into-client/#/account'
+    redirect_to 'http://localhost:7165/account'
   end
 
   private
