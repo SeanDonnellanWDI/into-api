@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'pry'
-
 class AlbumsController < ApplicationController
   before_action :set_album, only: %i[show update destroy]
 
@@ -49,26 +47,28 @@ class AlbumsController < ApplicationController
   # service, this time to its /api/token endpoint.
   def callback
     # Store the code
-    @code = params['code']
+    @sp_service = 'Spotify'
+    @sp_code = params['code']
+    @user = User.find(params['state'])
 
     # Perform POST request
-    @access = HTTParty.post('https://accounts.spotify.com/api/token',
-      :headers => { 'Accept' => 'application/json' },
-      query: {
+    @sp_access = HTTParty.post('https://accounts.spotify.com/api/token',
+                               headers: { 'Accept' => 'application/json' },
+                               query: {
         # When you register your application, Spotify provides you a Client ID
-        'client_id' => ENV['SPOTIFY_CLIENT_ID'],
+                                 'client_id' => ENV['SPOTIFY_CLIENT_ID'],
         # Request client_secret in registered app in Spotify dashboard
-        'client_secret' => ENV['SPOTIFY_CLIENT_SECRET'],
+                                 'client_secret' => ENV['SPOTIFY_CLIENT_SECRET'],
         # As defined in the OAuth 2.0 specification, this field must contain the
         # value "authorization_code"
-        'grant_type' => 'authorization_code',
+                                 'grant_type' => 'authorization_code',
         # The authorization code returned from the initial request to the
         # Account /authorize endpoint
-        'code' => @code,
+                                 'code' => @sp_code,
         # This parameter is used for validation only (there is no actual
         # redirection). The value of this parameter must exactly match the value
         #  of redirect_uri supplied when requesting the authorization code.
-        'redirect_uri' => 'http://localhost:4741/callback'
+                                 'redirect_uri' => 'http://localhost:4741/callback'
       })
     # This should return an access_token, token_type, scope, expires_in, and
     # refresh_token
@@ -76,17 +76,19 @@ class AlbumsController < ApplicationController
     # Step 3. Use the access token to access the Spotify Web API; Spotify
     # returns requested data
     # Retrieve the access_token, store it
-    @access_token = @access['access_token']
+    @sp_access_token = @sp_access['access_token']
 
     # Perform data request on behalf of a user by using their access_token
-    @spotify_data_request = HTTParty.get('https://api.spotify.com/v1/me',
-      :headers => { 'Accept' => 'application/json' },
-      query: {
-        'access_token' => @access_token
-      })
+    @sp_data = HTTParty.get('https://api.spotify.com/v1/me',
+                            headers: { 'Accept' => 'application/json' },
+                            query: {
+                              'access_token' => @sp_access_token
+                            })
     # Render the json object returned by the data access request
     # render json: @spotify_data_request
     # Or, redirect back to the app
+    @sp_user_email = @sp_data['email']
+    Album.create(email: @sp_user_email)
     redirect_to "http://localhost:7165/account"
   end
 
