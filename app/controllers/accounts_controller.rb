@@ -66,6 +66,7 @@ class AccountsController < ProtectedController
     puts 'this user_id is', @user.id
     puts 'this service is', @sp_service
     puts 'this username is', @sp_user_email
+    puts 'this sp_data is', @sp_data
     Account.create(user_id: @user.id,
                    service: @sp_service,
                    username: @sp_user_email)
