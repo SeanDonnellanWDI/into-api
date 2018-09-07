@@ -46,7 +46,7 @@ class AccountsController < ProtectedController
   def callback
     @sp_service = 'Spotify'
     @sp_code = params['code']
-    @user = User.find(params)
+    @user = User.find(params['state'])
     @sp_access = HTTParty.post('https://accounts.spotify.com/api/token',
                                headers: { 'Accept' => 'application/json' },
                                query: {
@@ -63,7 +63,7 @@ class AccountsController < ProtectedController
                               'access_token' => @sp_access_token
                             })
     @sp_user_email = @sp_data['email']
-    Account.create(user_id: @user['state'],
+    Account.create(user_id: '1',
                    service: @sp_service,
                    username: @sp_user_email).errors.full_messages
     redirect_to 'https://seandonn.io/into-client/#/account'
