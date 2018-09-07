@@ -63,7 +63,7 @@ class AccountsController < ProtectedController
                               'access_token' => @sp_access_token
                             })
     @sp_user_email = @sp_data['email']
-    puts @user
+    puts 'this user is', @user
     Account.create(user_id: @user.id,
                    service: @sp_service,
                    username: @sp_user_email)
