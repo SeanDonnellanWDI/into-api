@@ -63,7 +63,7 @@ class AccountsController < ProtectedController
                               'access_token' => @sp_access_token
                             })
     @sp_user_email = @sp_data['email']
-    Account.create(user_id: '1',
+    Account.create(user_id: 1,
                    service: @sp_service,
                    username: @sp_user_email).errors.full_messages
     redirect_to 'https://seandonn.io/into-client/#/account'
