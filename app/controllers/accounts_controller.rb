@@ -56,7 +56,6 @@ class AccountsController < ProtectedController
                                  'code' => @sp_code,
                                  'redirect_uri' => 'https://into-api.herokuapp.com/callback'
                                })
-    @sp_parse_access = JSON.parse(@sp_access.body)
     @sp_access_token = @sp_access['access_token']
     @sp_data = HTTParty.get('https://api.spotify.com/v1/me',
                             headers: { 'Authorization' => "Bearer #{@sp_access_token}", 'Accept' => 'application/json' })
