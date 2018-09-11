@@ -48,7 +48,7 @@ class AccountsController < ProtectedController
     @sp_code = params['code']
     @user = User.find(params['state'])
     @sp_access = HTTParty.post('https://accounts.spotify.com/api/token',
-                               headers: { 'Accept' => 'application/json' },
+                               headers: { 'Authorization' => 'Bearer', 'Accept' => 'application/json' },
                                query: {
                                  'client_id' => ENV['SPOTIFY_CLIENT_ID'],
                                  'client_secret' => ENV['SPOTIFY_CLIENT_SECRET'],
@@ -56,6 +56,7 @@ class AccountsController < ProtectedController
                                  'code' => @sp_code,
                                  'redirect_uri' => 'https://into-api.herokuapp.com/callback'
                                })
+    # puts '@sp_access is', @sp_access
     @sp_access_token = @sp_access['access_token']
     @sp_data = HTTParty.get('https://api.spotify.com/v1/me',
                             headers: { 'Accept' => 'application/json' },
@@ -63,10 +64,6 @@ class AccountsController < ProtectedController
                               'access_token' => @sp_access_token
                             })
     @sp_user_email = @sp_data['email']
-    # puts '1 this sp_code is', @sp_code
-    puts '2 this sp_access is', @sp_access
-    # puts '3 this sp_access_token is', @sp_access_token
-    # puts '4 this sp_data is', @sp_data
     Account.create(user_id: @user.id,
                    service: @sp_service,
                    username: @sp_user_email)
