@@ -45,8 +45,11 @@ class AccountsController < ProtectedController
   # GET /callback
   def callback
     @sp_service = 'Spotify'
+    puts "111 @sp_service is #{@sp_service}"
     @sp_code = params['code']
+    puts "222 @sp_code is #{@sp_code}"
     @user = User.find(params['state'])
+    puts "333 @user is #{@user}"
     @sp_access = HTTParty.post('https://accounts.spotify.com/api/token',
                                headers: { 'Accept' => 'application/json' },
                                body: {
@@ -56,10 +59,16 @@ class AccountsController < ProtectedController
                                  'code' => @sp_code,
                                  'redirect_uri' => 'https://into-api.herokuapp.com/callback'
                                })
-    sp_access_token = @sp_access['access_token']
+    puts "444 @sp_access is #{@sp_access}"
+    @sp_parse_access = JSON.parse(@sp_access.body)
+    puts "555 @sp_parse_access is #{@sp_parse_access}"
+    @sp_access_token = @sp_access['access_token']
+    puts "666 @sp_access_token is #{@sp_access_token}"
     @sp_data = HTTParty.get('https://api.spotify.com/v1/me',
-                            headers: { 'Authorization' => "Bearer #{sp_access_token}", 'Accept' => 'application/json' })
+                            headers: { 'Authorization' => "Bearer #{@sp_access_token}", 'Accept' => 'application/json' })
+    puts "777 @sp_data is #{@sp_data}"
     @sp_user_email = @sp_data['email']
+    puts "888 @sp_user_email is #{@sp_user_email}"
     Account.create(user_id: @user.id,
                    service: @sp_service,
                    username: @sp_user_email)
