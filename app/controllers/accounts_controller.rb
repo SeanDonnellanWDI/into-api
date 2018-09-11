@@ -51,7 +51,7 @@ class AccountsController < ProtectedController
     @user = User.find(params['state'])
     puts "333 @user is #{@user}"
     @sp_access = HTTParty.post('https://accounts.spotify.com/api/token',
-                               headers: { 'Accept' => 'application/json' },
+                               headers: { 'Authorization' => "Bearer #{@sp_access_token}", 'Accept' => 'application/json' },
                                body: {
                                  'client_id' => ENV['SPOTIFY_CLIENT_ID'],
                                  'client_secret' => ENV['SPOTIFY_CLIENT_SECRET'],
