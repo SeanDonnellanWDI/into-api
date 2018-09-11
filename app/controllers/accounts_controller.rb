@@ -59,7 +59,7 @@ class AccountsController < ProtectedController
     puts '@sp_access is', @sp_access
     @sp_access_token = @sp_access['access_token']
     @sp_data = HTTParty.get('https://api.spotify.com/v1/me',
-                            headers: { 'Authorization' => 'Bearer' + @sp_access_token, 'Accept' => 'application/json' },
+                            headers: { 'Authorization' => 'Bearer', 'Accept' => 'application/json' },
                             query: {
                               'access_token' => @sp_access_token
                             })
